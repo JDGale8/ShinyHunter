@@ -15,11 +15,9 @@ public class cum_chances {
         should have occured
         */
         double cum_chance = 0;
-        usefulFunctions UF = new usefulFunctions();
 
-        for(int i=0; i<n; i++){
-            cum_chance += UF.comb(n, i) * ((Math.pow(c, i) * (Math.pow((1-c),(n-i)))));
-
+        for(int i=1; i<n; i++){
+            cum_chance += n * ((Math.pow(c, i) * (Math.pow((1-c),(n-i)))));
         }
         return 1- cum_chance;
     };
@@ -27,7 +25,7 @@ public class cum_chances {
     double egg(int n, int sc, int mm){
         int base = 1 + 2*sc + mm;
 
-        double chance = base/4096;
+        double chance = (float)base/4096;
         double cum_chance = cum_bin_chance(chance, n);
 
         return cum_chance;

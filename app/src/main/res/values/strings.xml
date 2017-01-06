@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Shiny Hunter</string>
+    <string name="defaultSimText">Please enter a number and press \'Run\' to start a simulation...</string>
 </resources>
