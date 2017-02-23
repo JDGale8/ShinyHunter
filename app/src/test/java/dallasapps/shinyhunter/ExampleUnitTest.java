@@ -1,4 +1,4 @@
-package dallasapps.shinyhunter;
+package dallasapps.shine;
 
 import org.junit.Test;
 

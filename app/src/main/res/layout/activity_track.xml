@@ -1,13 +1,376 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+
+
+<dallasapps.shine.SlidingContainer
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:id="@+id/track_layout">
+
+
+
+<FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="dallasapps.shinyhunter.Track">
 
-</RelativeLayout>
+    android:background="#FFF">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:paddingTop="105dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="14dp"
+            android:paddingBottom="20dp"
+            android:clipToPadding="false"
+            android:id="@+id/pokedexListView"
+            android:descendantFocusability="blocksDescendants">
+
+        </ListView>
+
+    </LinearLayout>
+
+    <!-- LAYOUT FOR FRAGMENT OVERLAY-->
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/pokedex_search_background">
+
+    <!-- HEADER IMAGE  -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:visibility="gone"
+        android:background="@drawable/pokedex_top_name"/>
+
+    <!-- SEARCH BAR-->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/pokedexSearchEditText"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="18dp"
+        android:hint="Search Pokedex"
+        android:singleLine="true"
+        android:inputType="textFilter|textNoSuggestions"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:layout_gravity="left"/>
+
+    <!-- TOGGLE SECTION -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingLeft="12dp"
+            android:id="@+id/pokedexTypeTxt"
+            android:text="National Dex"
+            android:layout_weight="0.6"/>
+
+        <Switch
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/pokedexSwitch"
+            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
+            android:checked="true"
+            android:textSize="12dp"
+            android:layout_weight="0.4"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/pokedex_background_top"/>
+
+</LinearLayout>
+
+</FrameLayout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/mainTrackScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"
+        tools:context="dallasapps.shine.Track"
+        android:background="@drawable/pokedex_background_main"
+        android:clickable="true"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/sideBtn"
+            android:visibility="invisible"
+            android:background="#0000"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Gen: S/M"
+            android:id="@+id/genTxt"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"/>
+
+
+        <ImageButton
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/pokedexBtn"
+            android:background="@drawable/pokedex_xy_icon"
+            android:layout_alignTop="@+id/methodSpinner"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/p1"
+            android:id="@+id/trackedPokemon"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:background="@android:color/white"
+            android:id="@+id/whiteTop"
+            android:visibility="invisible"
+            android:layout_alignTop="@+id/trackedPokemon"
+            android:layout_toRightOf="@+id/sideBtn"
+            android:layout_toEndOf="@+id/sideBtn"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="24sp"
+            android:text="#001 Bulbasaur"
+            android:id="@+id/pokedexNo"
+            android:gravity="center_vertical"
+            android:layout_below="@+id/trackedPokemon"
+            android:layout_centerHorizontal="true"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pokedexNo"
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/linearLayout">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:textSize="50sp"
+                android:text="-"
+                android:id="@+id/minBtn"
+                android:background="#F44336"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="0"
+                    android:id="@+id/counterTxt"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_marginTop="30dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Chance"
+                    android:id="@+id/chance"
+                    android:textAlignment="center"
+                    android:layout_below="@+id/linearLayout"
+                    android:layout_gravity="center_horizontal"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textSize="30dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="1/4096"
+                    android:id="@+id/chanceTxt"
+                    android:layout_below="@+id/chance"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:textSize="50sp"
+                android:text="+"
+                android:id="@+id/plusBtn"
+                android:background="#F44336"
+                android:layout_weight="1"
+                />
+        </LinearLayout>
+
+
+        <!--<Button-->
+            <!--android:layout_width="70dp"-->
+            <!--android:layout_height="70dp"-->
+            <!--android:layout_marginTop="-15dp"-->
+            <!--android:scaleType="fitCenter"-->
+            <!--android:background="#0000"-->
+            <!--android:drawableBottom="@drawable/tallgrass"-->
+            <!--android:text="Method"-->
+            <!--android:id="@+id/methodBtn"-->
+            <!--style="?android:attr/borderlessButtonStyle"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_alignRight="@+id/trackedPokemon"-->
+            <!--android:layout_alignEnd="@+id/trackedPokemon"/>-->
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/methodSpinner"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:textSize="24dp"
+            android:text="Found"
+            android:layout_marginBottom="30dp"
+            android:id="@+id/foundBtn"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/scTrackChk"
+            android:checked="false"
+            android:onClick="detectCheckbox"
+            android:layout_alignBottom="@+id/foundBtn"
+            android:layout_alignLeft="@+id/imageView"
+            android:layout_alignStart="@+id/imageView"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Shiny Charm"
+            android:id="@+id/scTrackText"
+            android:layout_below="@+id/scTrackChk"
+            android:layout_alignRight="@+id/linearLayout"
+            android:layout_alignEnd="@+id/linearLayout"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/imageView"
+            android:src="@drawable/shiny_charm"
+            android:layout_alignTop="@+id/eggTrackImage"
+            android:layout_alignLeft="@+id/scTrackText"
+            android:layout_alignStart="@+id/scTrackText"
+            android:layout_marginLeft="22dp"
+            android:layout_marginStart="22dp"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/eggTrackImage"
+            android:src="@drawable/egg_icon"
+            android:layout_above="@+id/mmTrackChk"
+            android:layout_alignRight="@+id/mmTrackChk"
+            android:layout_alignEnd="@+id/mmTrackChk"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mmTrackChk"
+            android:checked="false"
+            android:onClick="detectCheckbox"
+            android:layout_alignBottom="@+id/foundBtn"
+            android:layout_alignRight="@+id/pokedexBtn"
+            android:layout_alignEnd="@+id/pokedexBtn"
+            android:layout_marginRight="6dp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Masuda"
+            android:id="@+id/masudaTrackTxt"
+            android:layout_alignTop="@+id/scTrackText"
+            android:layout_alignLeft="@+id/pokedexBtn"
+            android:layout_alignStart="@+id/pokedexBtn"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Method"
+            android:id="@+id/textView2"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/imageView"
+            android:layout_alignStart="@+id/imageView"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Pokedex"
+            android:id="@+id/pokedex_text"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+
+    </RelativeLayout>
+
+
+
+</dallasapps.shine.SlidingContainer>
+
+
+

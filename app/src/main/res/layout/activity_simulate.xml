@@ -8,36 +8,182 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="dallasapps.shinyhunter.Simulate">
+    tools:context="dallasapps.shine.Simulate"
+    android:clickable="true"
+    android:focusableInTouchMode="true">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/nSimulations"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Run"
-        android:id="@+id/rumSim"
-        android:layout_alignBottom="@+id/nSimulations"
-        android:layout_toRightOf="@+id/nSimulations"
-        android:layout_toEndOf="@+id/nSimulations"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/defaultSimText"
-        android:id="@+id/simResultsText"
-        android:layout_below="@+id/nSimulations"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shiny Charm"
+                    android:id="@+id/scChk"
+                    android:checked="false"/>
+
+                <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:id="@+id/leftRadGrp">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RE"
+                    android:id="@+id/RERadio"
+                    android:checked="false"/>
+
+                    <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Soft Reset"
+                    android:id="@+id/SRRadio"
+                    android:checked="false"/>
+
+                    <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SOS"
+                    android:id="@+id/SOSRadio"
+                    android:checked="false"/>
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Masuda"
+                    android:id="@+id/mmChk"
+                    android:checked="false"/>
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:id="@+id/midRadGrp">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Egg"
+                        android:id="@+id/eggRadio"
+                        android:checked="false"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Starter"
+                        android:id="@+id/starterRadio"
+                        android:checked="false"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DexNav"
+                        android:id="@+id/dexRadio"
+                        android:checked="false"/>
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Friend Safari"
+                    android:id="@+id/fsChk"
+                    android:checked="false"/>
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:id="@+id/rightRadGrp">
+
+                    <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Horde"
+                    android:id="@+id/hordeRadio"
+                    android:checked="false"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Chain Fishing"
+                        android:id="@+id/fishRadio"
+                        android:checked="false"/>
+                </RadioGroup>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            >
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:imeOptions="actionGo"
+                android:ems="10"
+                android:id="@+id/nSimulations"
+                android:layout_weight="0.75"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/runSimBtn"
+                android:text="Run"
+                android:layout_gravity="end"
+                android:layout_weight="0.25"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/defaultSimText"
+            android:id="@+id/simResultsText"
+            />
+
+    </LinearLayout>
+
+
 </RelativeLayout>
